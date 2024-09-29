@@ -5,7 +5,7 @@ import logo from "../../assets/logo.png";
 const Login = () => {
   return (
     <div className="login">
-      <img src={logo} alt="" />
+      <img src={logo} alt="" className="logo"/>
       <div className="login-form">
         <h1>Sign Up</h1>
         <form>

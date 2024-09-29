@@ -1,0 +1,33 @@
+.login {
+  height: 100vh;
+  background-image: linear-gradient(#0000007e, #0000007e), url(/netflix_background_image.jpg);
+  padding: 20px 8%;
+}
+.login .logo{
+    width: 150px;
+}
+.login-form{
+    width: 100%;
+    max-width: 450px;
+    background: rgba(0, 0, 0, 0.75);
+    padding: 60px;
+    margin: 0 auto;
+    border-radius: 4px;
+}
+.login-form h1{
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 1.75rem;
+}
+.login-form form input{
+    width: 100%;
+    height: 50px;
+    border: 0;
+    outline: 0;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 16px;
+    background: #333;
+    color: white;
+    font-weight: 500;
+}
