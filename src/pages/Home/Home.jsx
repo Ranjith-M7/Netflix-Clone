@@ -6,6 +6,7 @@ import hero_title from "../../assets/hero-title.png";
 import { FaPlay } from "react-icons/fa";
 import { MdInfoOutline } from "react-icons/md";
 import TitleCards from "../../components/TitleCards/TitleCards";
+import Footer from "../../components/Footer/Footer";
 
 const Home = () => {
   return (
@@ -34,11 +35,12 @@ const Home = () => {
         </div>
       </div>
       <div className="more-cards">
-        <TitleCards />
-        <TitleCards />
-        <TitleCards />
-        <TitleCards />
+        <TitleCards title={"Blockbuster Movies"} />
+        <TitleCards title={"Only on Netflix"} />
+        <TitleCards title={"Upcoming"} />
+        <TitleCards title={"Top Picks for You"} />
       </div>
+      <Footer />
     </div>
   );
 };
