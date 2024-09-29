@@ -7,7 +7,7 @@ margin-bottom: 10px;
 }
 .title-cards .card-list img{
     width: 240px;
-    height: 150px;
+    /* height: 150px; */
     object-position: center;
     object-fit: cover;
     border-radius: 4px;
