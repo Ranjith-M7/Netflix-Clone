@@ -2,6 +2,9 @@
   height: 100vh;
   background-image: linear-gradient(#0000007e, #0000007e),
     url(/netflix_background_image.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
   padding: 20px 8%;
 }
 .login .logo {

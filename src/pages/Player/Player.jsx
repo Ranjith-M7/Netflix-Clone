@@ -37,12 +37,12 @@ const Player = () => {
       <FaRegArrowAltCircleLeft
         className="previous-icon"
         onClick={() => {
-          navigate(-2);
+          navigate(-1);
         }}
       />
       <iframe
         width={"90%"}
-        height={"90%"}
+        height={"80%"}
         src={`https://www.youtube.com/embed/${apiData.key}`}
         frameborder="0"
         title="trailer"
