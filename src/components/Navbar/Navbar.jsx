@@ -6,6 +6,7 @@ import { FaSearch } from "react-icons/fa";
 import { FaRegBell } from "react-icons/fa";
 import { FaRegUser } from "react-icons/fa";
 import { FaCaretDown } from "react-icons/fa";
+import { logout } from "../../firebase";
 
 const Navbar = () => {
   const navRef = useRef();
@@ -41,7 +42,7 @@ const Navbar = () => {
           <FaRegUser size={20} className="profile" />
           <FaCaretDown size={20} />
           <div className="dropdown">
-            <p>Sign Out of Netflix</p>
+            <p onClick={logout}>Sign Out of Netflix</p>
           </div>
         </div>
       </div>

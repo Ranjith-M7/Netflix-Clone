@@ -37,7 +37,7 @@ const Player = () => {
       <FaRegArrowAltCircleLeft
         className="previous-icon"
         onClick={() => {
-          navigate(-1);
+          navigate(-2);
         }}
       />
       <iframe
