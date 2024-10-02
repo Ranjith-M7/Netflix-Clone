@@ -2,24 +2,31 @@ import React, { useState } from "react";
 import "./Login.css";
 import logo from "../../assets/logo.png";
 import { login, signUp } from "../../firebase";
+import netflix_spinner from "../../assets/netflix_spinner.gif";
 
 const Login = () => {
   const [signState, setSignState] = useState("Sign In");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const user_auth = async (event) => {
     event.preventDefault();
-
+    setLoading(true);
     if (signState === "Sign In") {
-      login(email, password);
+      await login(email, password);
     } else {
-      signUp(name, email, password);
+      await signUp(name, email, password);
     }
+    setLoading(false);
   };
 
-  return (
+  return loading ? (
+    <div className="login-spinner">
+      <img src={netflix_spinner} alt="" />
+    </div>
+  ) : (
     <div className="login">
       <img src={logo} alt="" className="logo" />
       <div className="login-form">
@@ -47,6 +54,7 @@ const Login = () => {
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            autoComplete="on"
           />
           <button onClick={user_auth} type="submit">
             {signState}

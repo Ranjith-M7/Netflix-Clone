@@ -23,11 +23,11 @@ const Home = () => {
           </p>
           <div className="hero-btns">
             <button className="btn light-btn">
-              <FaPlay size={20} className="" />
+              <FaPlay  className="icon" />
               Play
             </button>
             <button className="btn dark-btn">
-              <MdInfoOutline size={20} className="" />
+              <MdInfoOutline  className="icon" />
               More Info
             </button>
           </div>

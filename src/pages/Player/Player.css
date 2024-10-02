@@ -23,3 +23,23 @@
   width: 90%;
   margin-top: 20px;
 }
+
+@media (max-width: 800px) {
+  .previous-icon {
+    width: 30px;
+    height: 30px;
+  }
+  .player-info {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 500px) {
+  .previous-icon {
+    width: 25px;
+    height: 25px;
+  }
+  .player-info {
+    font-size: 12px;
+  }
+}
