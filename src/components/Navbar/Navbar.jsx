@@ -1,11 +1,7 @@
 import React, { useEffect, useRef } from "react";
-import "./Navbar.css";
 import logo from "../../assets/logo.png";
 
-import { FaSearch } from "react-icons/fa";
-import { FaRegBell } from "react-icons/fa";
-import { FaRegUser } from "react-icons/fa";
-import { FaCaretDown } from "react-icons/fa";
+import { FaSearch, FaRegBell, FaRegUser, FaCaretDown } from "react-icons/fa";
 import { logout } from "../../firebase";
 
 const Navbar = () => {
@@ -14,35 +10,40 @@ const Navbar = () => {
   useEffect(() => {
     window.addEventListener("scroll", () => {
       if (window.scrollY > 80) {
-        navRef.current.classList.add("nav-dark");
+        navRef.current.classList.add("bg-black");
       } else {
-        navRef.current.classList.remove("nav-dark");
+        navRef.current.classList.remove("bg-black");
       }
     });
-  });
+  }, []);
 
   return (
-    <div className="navbar" ref={navRef}>
-      <div className="navbar-left">
-        <img src={logo} alt="" />
-        <ul>
-          <li>Home</li>
-          <li>TV Shows</li>
-          <li>Movies</li>
-          <li>New & Popular</li>
-          <li>My List</li>
-          <li>Browse by Language</li>
+    <div
+      className="fixed w-full p-5 px-[6%] flex justify-between text-sm text-gray-300 bg-gradient-to-b from-black/70 to-transparent z-10 transition-all duration-300"
+      ref={navRef}
+    >
+      <div className="flex items-center gap-12">
+        <img src={logo} alt="Netflix Logo" className="w-36 sm:w-24" />
+        <ul className="hidden gap-5 list-none lg:flex">
+          <li className="cursor-pointer">Home</li>
+          <li className="cursor-pointer">TV Shows</li>
+          <li className="cursor-pointer">Movies</li>
+          <li className="cursor-pointer">New & Popular</li>
+          <li className="cursor-pointer">My List</li>
+          <li className="cursor-pointer">Browse by Language</li>
         </ul>
       </div>
-      <div className="navbar-right">
-        <FaSearch size={20} style={{ cursor: "pointer" }} />
-        <p>Children</p>
-        <FaRegBell size={20} style={{ cursor: "pointer" }} />
-        <div className="navbar-profile">
-          <FaRegUser size={20} className="profile" />
+      <div className="flex items-center gap-3 sm:gap-5">
+        <FaSearch size={20} className="cursor-pointer" />
+        <p className="hidden sm:block">Children</p>
+        <FaRegBell size={20} className="cursor-pointer" />
+        <div className="relative flex items-center gap-2 cursor-pointer group">
+          <FaRegUser size={20} />
           <FaCaretDown size={20} />
-          <div className="dropdown">
-            <p onClick={logout}>Sign Out of Netflix</p>
+          <div className="absolute top-full right-0 bg-gray-900 p-4 rounded-md underline text-xs  hidden group-hover:block z-10 whitespace-nowrap">
+            <p onClick={logout} className="cursor-pointer">
+              Sign Out of Netflix
+            </p>
           </div>
         </div>
       </div>
