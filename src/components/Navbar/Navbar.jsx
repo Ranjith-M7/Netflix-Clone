@@ -23,7 +23,7 @@ const Navbar = () => {
       ref={navRef}
     >
       <div className="flex items-center gap-12">
-        <img src={logo} alt="Netflix Logo" className="w-36 sm:w-24" />
+        <img src={logo} alt="Netflix Logo" className="w-20 sm:w-32" />
         <ul className="hidden gap-5 list-none lg:flex">
           <li className="cursor-pointer">Home</li>
           <li className="cursor-pointer">TV Shows</li>

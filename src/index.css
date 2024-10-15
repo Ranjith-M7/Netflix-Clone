@@ -12,4 +12,29 @@
     background: black;
     color: white;
   }
+  img {
+    display: inline; 
+    max-width: none;  
+    height: auto;
+}
+}
+
+@layer utilities {
+  .mask-radial-fade {
+    mask-image: linear-gradient(to right, transparent, black 75%);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 75%);
+  }
+  .btn-light {
+    @apply bg-white text-black hover:bg-white/80;
+  }
+  .btn-dark {
+    @apply bg-gray-600 text-white hover:bg-gray-600/80;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none; /* IE */
+    scrollbar-width: none; /* Firefox */
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
 }

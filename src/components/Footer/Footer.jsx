@@ -1,20 +1,17 @@
 import React from "react";
-import "./Footer.css";
-import { FaYoutube } from "react-icons/fa";
+import { FaYoutube, FaInstagram, FaFacebookF } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import { FaInstagram } from "react-icons/fa";
-import { FaFacebookF } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className="footer">
-      <div className="footer-icons">
-        <FaFacebookF size={25} className="icon"/>
-        <FaInstagram size={25} className="icon"/>
-        <FaXTwitter size={25} className="icon"/>
-        <FaYoutube size={25} className="icon"/>
+    <div className="max-w-5xl mx-auto my-0 py-8 px-[4%]">
+      <div className="flex gap-5 my-12">
+        <FaFacebookF size={25} className="cursor-pointer" />
+        <FaInstagram size={25} className="cursor-pointer" />
+        <FaXTwitter size={25} className="cursor-pointer" />
+        <FaYoutube size={25} className="cursor-pointer" />
       </div>
-      <ul>
+      <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8 text-xl  md:gap-2 md:text-sm">
         <li>Audio Description</li>
         <li>HeIp Centre</li>
         <li>Gift Cards</li>
@@ -28,10 +25,9 @@ const Footer = () => {
         <li>Corporate Information</li>
         <li>Contact Us</li>
       </ul>
-      <p className="copyright-text">© 1997-2024 Netflix, Inc.</p>
+      <p className="text-gray-500 text-sm">© 1997-2024 Netflix, Inc.</p>
     </div>
   );
 };
 
 export default Footer;
-  

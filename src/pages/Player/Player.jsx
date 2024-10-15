@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./Player.css";
 import { FaRegArrowAltCircleLeft } from "react-icons/fa";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -33,9 +32,9 @@ const Player = () => {
   }, []);
 
   return (
-    <div className="player">
+    <div className="h-screen flex flex-col justify-center items-center">
       <FaRegArrowAltCircleLeft
-        className="previous-icon"
+        className="absolute top-5 left-5 w-10 h-10 cursor-pointer"
         onClick={() => {
           navigate(-2);
         }}
@@ -48,8 +47,8 @@ const Player = () => {
         title="trailer"
         allowFullScreen
       ></iframe>
-      <div className="player-info">
-        <p>{apiData.published_at.slice(0,10)}</p>
+      <div className="flex items-center justify-between w-[90%] mt-5 text-sm">
+        <p>{apiData.published_at.slice(0, 10)}</p>
         <p>{apiData.name}</p>
         <p>{apiData.type}</p>
       </div>

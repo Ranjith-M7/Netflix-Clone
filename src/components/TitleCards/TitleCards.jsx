@@ -1,10 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
-import "./TitleCards.css";
 import { Link } from "react-router-dom";
 
 const TitleCards = ({ title, category }) => {
   const [apiData, setApiData] = useState([]);
-  const cardsRef = useRef();
+  // const cardsRef = useRef();
 
   const options = {
     method: "GET",
@@ -15,10 +14,12 @@ const TitleCards = ({ title, category }) => {
     },
   };
 
-  const handleWheel = (event) => {
-    event.preventDefault();
-    cardsRef.current.scrollLeft += event.deltaY;
-  };
+  // const handleWheel = (event) => {
+  //   event.preventDefault();
+  //   cardsRef.current.scrollLeft += event.deltaY;
+  // };
+
+  // fetch movie data from the API based on the category
   useEffect(() => {
     fetch(
       `https://api.themoviedb.org/3/movie/${
@@ -30,20 +31,32 @@ const TitleCards = ({ title, category }) => {
       .then((response) => setApiData(response.results))
       .catch((err) => console.error(err));
 
-    cardsRef.current.addEventListener("wheel", handleWheel);
+    // cardsRef.current.addEventListener("wheel", handleWheel);
   }, []);
 
   return (
-    <div className="title-cards">
-      <h2>{title ? title : "Popular on Netflix"}</h2>
-      <div className="card-list" ref={cardsRef}>
+    <div className={`mt-12 mb-7 ${title ? ``:`hidden lg:block`}`}>
+      <h2 className="text-lg font-semibold mb-3">
+        {title ? title : "Popular on Netflix"}
+      </h2>
+      <div
+        className="flex gap-3 overflow-x-scroll scrollbar-hide"
+        // ref={cardsRef}
+      >
         {apiData.map(({ original_title, backdrop_path, id }) => (
-          <Link to={`/player/${id}`} key={id} className="card">
+          <Link
+            to={`/player/${id}`}
+            key={id}
+            className="relative cursor-pointer"
+          >
             <img
               src={`https://image.tmdb.org/t/p/w500${backdrop_path}`}
               alt=""
+              className="w-52 sm:w-60 rounded object-cover"
             />
-            <p>{original_title}</p>
+            <p className="absolute bottom-2 right-2 text-white text-sm">
+              {original_title}
+            </p>
           </Link>
         ))}
       </div>
