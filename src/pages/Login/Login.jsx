@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./Login.css";
 import logo from "../../assets/logo.png";
 import { login, signUp } from "../../firebase";
 import netflix_spinner from "../../assets/netflix_spinner.gif";
@@ -23,14 +22,14 @@ const Login = () => {
   };
 
   return loading ? (
-    <div className="login-spinner">
-      <img src={netflix_spinner} alt="" />
+    <div className="flex justify-center items-center w-full h-screen">
+      <img src={netflix_spinner} alt="" className="w-16"/>
     </div>
   ) : (
-    <div className="login">
-      <img src={logo} alt="" className="logo" />
-      <div className="login-form">
-        <h1>{signState}</h1>
+    <div className="min-h-screen login-radial-bg bg-no-repeat bg-center bg-cover py-4 px-[5%] sm:py-5 sm:px-[8%]">
+      <img src={logo} alt="" className="w-40" />
+      <div className="w-full max-w-md bg-black/75 p-5 sm:p-14 mt-7 sm:mt-0 my-0 mx-auto border rounded-md border-transparent">
+        <h1 className="text-3xl font-medium mb-7">{signState}</h1>
         <form>
           {signState === "Sign Up" ? (
             <input
@@ -38,6 +37,7 @@ const Login = () => {
               placeholder="Your name"
               value={name}
               onChange={(e) => setName(e.target.value)}
+              className="w-full h-12 px-5 mb-2 bg-[#333] text-white font-medium rounded-md focus:outline-none"
             />
           ) : (
             <></>
@@ -48,6 +48,7 @@ const Login = () => {
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            className="w-full h-12 px-5 my-2 bg-[#333] text-white font-medium rounded-md focus:outline-none"
           />
           <input
             type="password"
@@ -55,20 +56,21 @@ const Login = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             autoComplete="on"
+            className="w-full h-12 px-5 my-2 bg-[#333] text-white font-medium rounded-md focus:outline-none"
           />
-          <button onClick={user_auth} type="submit">
+          <button onClick={user_auth} type="submit" className="w-full h-12 bg-[#e50914] text-white font-medium rounded-md mt-2">
             {signState}
           </button>
-          <div className="form-help">
-            <div className="remember">
-              <input type="checkbox" id="remember-me" />
+          <div className="flex items-center justify-between text-sm text-gray-400">
+            <div className="flex items-center gap-2 mt-6">
+              <input type="checkbox" id="remember-me" className="w-4 h-4"/>
               <label htmlFor="remember-me">Remember Me</label>
             </div>
             <p>Need Help?</p>
           </div>
         </form>
 
-        <div className="form-switch">
+        <div className="mt-8 text-gray-500">
           {signState === "Sign In" ? (
             <p>
               New to Netflix?
@@ -76,6 +78,7 @@ const Login = () => {
                 onClick={() => {
                   setSignState("Sign Up");
                 }}
+                className="ml-2 text-white font-medium cursor-pointer"
               >
                 Sign Up Now
               </span>
@@ -87,6 +90,7 @@ const Login = () => {
                 onClick={() => {
                   setSignState("Sign In");
                 }}
+                className="ml-2 text-white font-medium cursor-pointer"
               >
                 Sign In Now
               </span>
