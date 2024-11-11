@@ -12,16 +12,19 @@ const App = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    // Handle auth state change on mount (including on page refresh)
     onAuthStateChanged(auth, async (user) => {
       if (user) {
         console.log("Logged In");
-        navigate("/");
+        // navigate("/");
+        // If authenticated, stay on the page
+        // Only navigate to login if user is not authenticated
       } else {
         console.log("Logged Out");
-        navigate("/login");
+        navigate("/login"); // Navigate to login if not logged in
       }
     });
-  }, []);
+  }, [navigate]);
   return (
     <>
       <ToastContainer />

@@ -57,8 +57,13 @@ const login = async (email, password) => {
   }
 };
 
-const logout = () => {
-  signOut(auth);
+const logout = async () => {
+  try {
+    await signOut(auth);
+  } catch (error) {
+    console.log("Logout error:", error);
+    toast.error("Error signing out");
+  }
 };
 
 export { auth, db, login, signUp, logout };
